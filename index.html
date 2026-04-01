@@ -9,6 +9,7 @@
             margin: 0;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             background: #000;
@@ -16,9 +17,22 @@
             font-family: sans-serif;
             font-size: 3rem;
         }
+        #counter {
+            position: fixed;
+            bottom: 1rem;
+            font-size: 0.8rem;
+            color: #555;
+        }
     </style>
 </head>
 <body>
     <p>lolno</p>
+    <div id="counter"></div>
+    <script>
+        fetch("https://api.counterapi.dev/v1/itsnotyuiiii-socials/visits/up")
+            .then(r => r.json())
+            .then(d => document.getElementById("counter").textContent = d.count + " visits")
+            .catch(() => {});
+    </script>
 </body>
 </html>
