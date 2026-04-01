@@ -27,12 +27,12 @@
 </head>
 <body>
     <p>lolno</p>
-    <div id="counter"></div>
+    <div id="counter">loading...</div>
     <script>
         fetch("https://api.counterapi.dev/v1/itsnotyuiiii-socials/visits/up")
             .then(r => r.json())
             .then(d => document.getElementById("counter").textContent = d.count + " visits")
-            .catch(() => {});
+            .catch(e => document.getElementById("counter").textContent = "counter unavailable");
     </script>
 </body>
 </html>
