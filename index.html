@@ -27,13 +27,16 @@
 </head>
 <body>
     <p>lolno</p>
-    <div id="counter">loading...</div>
+    <div id="counter"></div>
+    <script data-goatcounter="https://itsnotyuiiii.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
     <script>
         var c = document.getElementById("counter");
-        fetch("https://api.counterapi.dev/v1/itsnotyuiiii-socials/visits/up")
+        var url = "https://itsnotyuiiii.goatcounter.com/counter/" + encodeURIComponent(location.pathname) + ".json";
+        fetch(url)
             .then(function(r) { return r.json(); })
             .then(function(d) { c.textContent = d.count + " visits"; })
-            .catch(function(e) { c.textContent = "error: " + e.message; });
+            .catch(function() { c.textContent = ""; });
     </script>
 </body>
 </html>
